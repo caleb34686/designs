@@ -3,36 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MY FIRST SITE</title>
 </head>
-<body>
-    <script>
-        let number=Number(prompt("enter the number"));
-        let season;
-        switch (number){
-            case 1:
-            season="spring";
-            break;
+<body style="color:dodgerblue;">
+    <h1 style="color: peru;
+    font-family:'Times New Roman', Times, serif
+    font-size 60px;">
+        WELCOME TO MY WEBSITE</h1>
+    <p>This website gives the ability to upload reference point such as codes, 
+        concerning html,javascript,css and python.
+    </p>
+    <textarea placeholder="kindly provide your feedback"></textarea>
+    <br>
+    <form id="uploadForm">
+    
+    <label for="fileUpload" style="cursor: pointer; color: peru;">Select your files:</label>
+    <input type="file" id="fileUpload" name="myFiles" multiple style="margin: 10px 0;">
+    <br>
+    
+    <button type="submit" style="background-color:cornflowerblue; color:aliceblue; border:none; padding: 15px 30px; cursor: pointer;">
+        Upload Now!
+    </button>
+</form>
 
-            case 2:
-            season="winter";
-            break;
+<div id="fileList" style="margin-top: 20px; font-family: sans-serif;"></div>
 
-            case 3:
-            season="summer";
-            break;
+<script>
+    const uploadForm = document.getElementById('uploadForm');
+    const fileInput = document.getElementById('fileUpload');
+    const fileList = document.getElementById('fileList');
 
-            case 4:
-            season="autumn";
-            break;
-            default:
-            season="enter number between 1 and 4."
-             break;
+    uploadForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        fileList.innerHTML = "<strong>Uploaded Files:</strong><br>";
+        
+        
+        const files = fileInput.files;
+        if (files.length === 0) {
+            fileList.innerHTML += "No files selected.";
+        } else {
+            for (let i = 0; i < files.length; i++) {
+                fileList.innerHTML += `${i + 1}. ${files[i].name} (${(files[i].size / 1024).toFixed(2)} KB)<br>`;
+            }
         }
-        alert("season:"+season)
-        
-        
+    });
+</script>
 
-    </script>
+
 </body>
 </html>
