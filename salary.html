@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let salary = prompt("Enter your salary:");
+    let remark;
+    let tax = salary * 0.10;
+    let netSalary = salary - tax;
+    alert("Net Salary: " + netSalary);
+
+    if (netSalary < 10000) {
+        Remark="Poor";
+    } else if (netSalary >= 10000 && netSalary <= 50000) {
+        Remark="Middle Class";
+    } else {
+        Remark="Rich";
+    }
+    alert("Remark:"+Remark)
+    </script>
+</body>
+</html>
